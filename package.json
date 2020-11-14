@@ -1,6 +1,6 @@
 {
   "name": "aegis-api-proxy",
-  "version": "0.0.1",
+  "version": "0.1.0-beta2",
   "description": "接口代理",
   "main": "src/packages/index.ts",
   "keyword": "aegis aegis-api-proxy",
