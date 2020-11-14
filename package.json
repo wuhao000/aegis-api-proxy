@@ -1,0 +1,59 @@
+{
+  "name": "aegis-api-proxy",
+  "version": "0.0.1",
+  "description": "接口代理",
+  "main": "src/packages/index.ts",
+  "keyword": "aegis aegis-api-proxy",
+  "private": false,
+  "scripts": {
+    "lib": "vue-cli-service build --target lib --name apiProxy --dest lib src/packages/index.ts",
+    "cdn": "tsc -p build && npm run lib && node build/cdn.js",
+    "test": "jest"
+  },
+  "repository": "https://github.com/wuhao000/aegis-api-proxy.git",
+  "files": [
+    "dist",
+    "packages",
+    "lib",
+    "src",
+    "README.md",
+    "types"
+  ],
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "lodash.debounce": "^4.0.8",
+    "lodash.merge": "^4.6.1",
+    "qs": "^6.9.0",
+    "raf": "^3.4.1",
+    "vue": "^2.6.12",
+    "warning": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^24.0.19",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/qs": "^6.5.3",
+    "array-tree-filter": "^2.1.0",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-component": "^1.1.1",
+    "babel-plugin-import": "^1.11.0",
+    "file-loader": "^3.0.1",
+    "jest": "^24.9.0",
+    "lint-staged": "^8.1.5",
+    "lodash": "^4.17.11",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.2.1"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  },
+  "typings": "types/index.d.ts"
+}
