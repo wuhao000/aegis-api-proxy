@@ -1,17 +1,18 @@
-// @ts-nocheck
 import Axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios';
 import merge from 'lodash.merge';
-import {API, ApiDef, ApiObject, ApiResponse, AppConfig, ParamType} from '../../../../types/api';
-import HttpMethod from '../http-method';
+import {API, ApiDef, ApiObject, ApiResponse, AppConfig, ParamType} from '../types/api';
+import {HttpMethod} from './http-method';
 import {assignParams} from './param-handler';
 
 /**
  * Created by wuhao on 2017/1/16.
  */
 export default (apiObj: ApiObject<ApiDef>,
-                config: AppConfig,
+                config?: AppConfig,
                 commonSettings: AxiosRequestConfig = {}): ApiObject<API> => {
-  Axios.defaults.baseURL = config.basePath;
+  if (config) {
+    Axios.defaults.baseURL = config.basePath;
+  }
   const newObj = Object.assign({}, apiObj) as unknown as API;
 
   function defineReq<D>(obj: API<D>, options: any): ApiObject<API> {
@@ -54,7 +55,7 @@ export default (apiObj: ApiObject<ApiDef>,
       }
       return new Promise((resolve, reject) => {
         if (v.data.code) {
-          if ((obj.errorHandleType === undefined || obj.errorHandleType === 'global') && config.logicErrorHandler) {
+          if ((obj.errorHandleType === undefined || obj.errorHandleType === 'global') && config?.logicErrorHandler) {
             config.logicErrorHandler(v.data, v.data.code);
           }
           reject(v.data);
@@ -70,7 +71,7 @@ export default (apiObj: ApiObject<ApiDef>,
   };
 
   const request = (obj: API & AxiosRequestConfig, params?: ParamType) => {
-    obj.url = obj.url + (config.pathSuffix || '');
+    obj.url = obj.url + (config?.pathSuffix || '');
     // @ts-ignore
     obj.method = obj.method || HttpMethod.GET;
     assignParams(obj, params);
@@ -83,8 +84,7 @@ export default (apiObj: ApiObject<ApiDef>,
       }
       resolve(v);
     })).catch((err: AxiosError) => new Promise((resolve, reject) => {
-      if ((obj.errorHandleType === undefined || obj.errorHandleType === 'global')
-        && config.httpStatusErrorHandler) {
+      if ((obj.errorHandleType === undefined || obj.errorHandleType === 'global') && config?.httpStatusErrorHandler) {
         if (err.response) {
           config.httpStatusErrorHandler(err, err.response.status);
         } else {

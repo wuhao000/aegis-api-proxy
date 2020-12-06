@@ -1,5 +1,5 @@
-import {AppConfig} from '../../../../types';
-import proxy from '../index';
+import {AppConfig} from '../../types';
+import proxy from '../api-proxy';
 
 const config: AppConfig = {
   basePath: '/api',

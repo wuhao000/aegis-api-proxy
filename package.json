@@ -1,14 +1,15 @@
 {
   "name": "aegis-api-proxy",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "接口代理",
-  "main": "src/packages/index.ts",
+  "main": "es/index.js",
   "keyword": "aegis aegis-api-proxy",
   "private": false,
   "scripts": {
-    "lib": "vue-cli-service build --target lib --name apiProxy --dest lib src/packages/index.ts",
-    "cdn": "tsc -p build && npm run lib && node build/cdn.js",
-    "test": "jest"
+    "lib": "vue-cli-service build --target lib --name apiProxy --dest lib src/index.ts",
+    "build": "node build/compile.js",
+    "test": "jest",
+    "release": "npm run build && npm publish"
   },
   "repository": "https://github.com/wuhao000/aegis-api-proxy.git",
   "files": [
@@ -34,6 +35,11 @@
     "warning": "^4.0.3"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-transform-object-assign": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.6.0",
     "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.19",
     "@types/lodash.debounce": "^4.0.6",
@@ -41,8 +47,14 @@
     "array-tree-filter": "^2.1.0",
     "babel-jest": "^24.9.0",
     "babel-plugin-component": "^1.1.1",
-    "babel-plugin-import": "^1.11.0",
+    "babel-plugin-import": "^1.13.1",
+    "babel-plugin-requirejs": "^7.7.2",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "babel-preset-env": "^1.7.0",
     "file-loader": "^3.0.1",
+    "fs-extra": "^9.0.1",
     "jest": "^24.9.0",
     "lint-staged": "^8.1.5",
     "lodash": "^4.17.11",

@@ -1,8 +1,7 @@
-// @ts-nocheck
 import {AxiosRequestConfig} from 'axios';
 import qs from 'qs';
-import {API, ParamType} from '../../../types';
-import HttpMethod from '../http-method';
+import {API, ParamType} from '../types';
+import {HttpMethod} from './http-method';
 
 /**
  * 判断对象是不是数组

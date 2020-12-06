@@ -1,5 +1,5 @@
 import {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios';
-import HttpMethod from '../src/packages/http-method';
+import HttpMethod from '../src/http-method';
 
 
 export interface ApiResponse<D> {

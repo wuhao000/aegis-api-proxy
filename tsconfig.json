@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "strictNullChecks": false,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "jest",
+      "axios"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "utils/*": [
+        "src/utils/*"
+      ],
+      "static/*": [
+        "static/*"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types",
+      "v-schema-form/src/types"
+    ],
+    "lib": [
+      "esnext",
+      "dom.iterable",
+      "dom"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "types/global.d.ts",
+    "types/api.d.ts",
+    "types/bus.d.ts",
+    "types/bean.d.ts",
+    "node_modules/@types/node/globals.d.ts",
+    "node_modules/@types/jest/index.d.ts"
+  ],
+  "exclude": [
+    "node_modules/element-ui",
+    "*.md",
+    "src/types/api-definition.d.ts"
+  ]
+}
