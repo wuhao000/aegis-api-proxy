@@ -1,6 +1,6 @@
 {
   "name": "aegis-api-proxy",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "接口代理",
   "main": "es/index.js",
   "keyword": "aegis aegis-api-proxy",
@@ -13,11 +13,7 @@
   },
   "repository": "https://github.com/wuhao000/aegis-api-proxy.git",
   "files": [
-    "dist",
-    "packages",
-    "lib",
-    "src",
-    "README.md",
+    "es",
     "types"
   ],
   "postcss": {
