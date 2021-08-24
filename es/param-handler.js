@@ -89,7 +89,14 @@ export var assignParams = function assignParams(obj, params) {
     obj.url = replaceRestParams(obj.url, copyParams);
 
     if (obj.isFormData && [HttpMethod.POST, HttpMethod.PUT].includes(obj.method)) {
-      obj.headers['content-type'] = 'application/x-www-form-urlencoded';
+      if (!obj.headers) {
+        obj.headers = {
+          'content-type': 'application/x-www-form-urlencoded'
+        };
+      } else {
+        obj.headers['content-type'] = 'application/x-www-form-urlencoded';
+      }
+
       obj.data = qs.stringify(copyParams);
     } else if (HttpMethod.GET === obj.method || obj.isFormData && [HttpMethod.DELETE].includes(obj.method)) {
       obj.url = obj.url + "?" + qs.stringify(copyParams);
