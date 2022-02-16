@@ -1,6 +1,6 @@
 {
   "name": "aegis-api-proxy",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "接口代理",
   "main": "es/index.js",
   "keyword": "aegis aegis-api-proxy",
@@ -12,6 +12,9 @@
     "release": "npm run build && npm publish"
   },
   "repository": "https://github.com/wuhao000/aegis-api-proxy.git",
+  "publishConfig": {
+    "registry": "https://nexus.aegis-info.com/repository/npm-aegis/"
+  },
   "files": [
     "es",
     "types"

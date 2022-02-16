@@ -68,7 +68,7 @@ export default (function (apiObj, config, commonSettings) {
       }
 
       return new Promise(function (resolve, reject) {
-        if (v.data.code) {
+        if (v.data.code && pure) {
           if ((obj.errorHandleType === undefined || obj.errorHandleType === 'global') && config != null && config.logicErrorHandler) {
             config.logicErrorHandler(v.data, v.data.code);
           }
