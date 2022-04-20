@@ -35,6 +35,6 @@ export const api = apiProxy;
 import {api} from './api'
 
 const data = await api.login.r(); // 返回 {code: 0, data: {} | []} 中的data的值
-const wrapData = await api.login.req();
-const axiosResponse = await api.login.request();
+const wrapData = await api.login.req(); // 返回 {code: 0, data: {} | []}
+const axiosResponse = await api.login.request(); // 返回axios的Response对象，其中的data为{code: 0, data: {} | []}
 ```
